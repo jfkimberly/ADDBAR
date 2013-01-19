@@ -1,0 +1,6 @@
+* todo [0/3]
+
+- [ ] add scale bars of other lengths (e.g. 1/4 and 1/5)
+- [ ] optical character recognition (OCR) functionality
+- [ ] image rotation functionality where needed
+
