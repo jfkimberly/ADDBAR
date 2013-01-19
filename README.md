@@ -16,6 +16,7 @@ Usage
 At the command line, type
 
 `$ python addbar.py`
+
 `> Enter name of file (excluding '.pdf')`
 
 Enter the name of the pdf file (without typing '.pdf'). The file may be multiple pages. For example if you have a file named *example.pdf*, type *example* and a file named *example-addbar.pdf*, with all the cropped images and added scale bars, will be produced.
