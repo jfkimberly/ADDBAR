@@ -18,7 +18,7 @@
 
 from pyPdf import PdfFileWriter, PdfFileReader
 
-# 
+# run from the command line
 name = raw_input("Enter name of file (excluding '.pdf')\n")
 namepdf = name + ".pdf"
 
@@ -28,8 +28,8 @@ outfoot = PdfFileWriter()
 numPages = infoot.getNumPages()
 print "document has %s pages." % numPages
 
-for i in range(numPages):
-    page = infoot.getPage(i)
+for pagenum in range(numPages):
+    page = infoot.getPage(pagenum)
 
     watermark = PdfFileReader(file("bar.pdf", "rb"))
     page.mergePage(watermark.getPage(0))
