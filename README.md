@@ -15,25 +15,23 @@ All parsing, cropping, and manipulation of the input pdf file is done using the
 
 All dependencies can be installed using `pip`. `pip` does not come pre-installed  with the python virtual machine, so you need to install it manually.
 
-1. Install pip (if you do not have it installed)
+* Install pip (if you do not have it installed)
 
-	# yum install python-pip
+`# yum install python-pip`
 	
 or 
 
-	$ sudo apt-get install python-pip
+`$ sudo apt-get install python-pip`
 	
 for linux machines.
 
+* Upgrade `pip`.
 
-2. Upgrade `pip`.
+`$ sudo pip install pip --upgrade`
 
-	$ sudo pip install pip --upgrade
-
-	
-3. Install all required dependencies by typing
+* Install all required dependencies by typing
    
-   $ pip install -r requirements.txt
+`$ pip install -r requirements.txt`
 
 
 Usage
