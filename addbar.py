@@ -22,26 +22,58 @@ from pyPdf import PdfFileWriter, PdfFileReader
 name = raw_input("Enter name of file (excluding '.pdf')\n")
 namepdf = name + ".pdf"
 
+# number of output channels
+while True:
+    try:
+        channels = int(raw_input("How many output channels (usually 1 or 2)?\n"))
+    except ValueError:
+        print("Try 1 or 2")
+    else: 
+        if 1 <= channels <= 2: 
+            break
+        else : 
+            print("Try 1 or 2")
+
+# output filename
+outputfile = raw_input("Output filename without '.pdf' (default: 'filename-addbar.pdf')?\n")
+
 infoot = PdfFileReader(file(namepdf, "rb"))
 outfoot = PdfFileWriter()
 
 numPages = infoot.getNumPages()
 print "document has %s pages." % numPages
 
-for pagenum in range(numPages):
-    page = infoot.getPage(pagenum)
-
+if channels == 1:
     watermark = PdfFileReader(file("bar.pdf", "rb"))
+if channels == 2:
+    watermark = PdfFileReader(file("bar2.pdf", "rb"))
+
+for pagenum in range(numPages):
+
+    page = infoot.getPage(pagenum)
     page.mergePage(watermark.getPage(0))
 
-#    print page.mediaBox.getLowerRight_x(), page.mediaBox.getLowerRight_y()
+    #    print page.mediaBox.getLowerRight_x(), page.mediaBox.getLowerRight_y()
 
-    page.trimBox.upperLeft = (62, 38)
-    page.trimBox.lowerRight = (458, 434)
-    page.cropBox.upperLeft = (62, 38)
-    page.cropBox.lowerRight = (458, 434)
+    if channels == 1:
+        page.trimBox.upperLeft = (62, 38)
+        page.trimBox.lowerRight = (458, 434)
+        page.cropBox.upperLeft = (62, 38)
+        page.cropBox.lowerRight = (458, 434)
+
+    elif channels == 2:
+        page.trimBox.upperLeft = (43.5, 0)
+        page.trimBox.lowerRight = (440, 793.5)
+        page.cropBox.upperLeft = (43.5, 0)
+        page.cropBox.lowerRight = (440, 793.5)
+    
     outfoot.addPage(page)
 
-outfootStream = file(name + "-addbar.pdf", "wb")
+
+if outputfile == '':
+    outfootStream = file(name + "-addbar.pdf", "wb")
+else:
+    outfootStream = file(name + outputfile + ".pdf", "wb")
+
 outfoot.write(outfootStream)
 outfootStream.close()
