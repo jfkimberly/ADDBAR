@@ -3,7 +3,7 @@ ADDBAR
 
 ADDBAR is a python script which automatically crops the image portion of the pdf
 file(s) of atomic force microscopy (AFM) images produced by NanoScope Software
-(Veeco Instruments Inc.). In addition, a scale bar whose length is one-tenth of
+(Veeco Instruments Inc.). In addition, a scale bar whose length is one-fifth of
 the width of the image is superimposed in the bottom-right corner.
 
 
