@@ -73,7 +73,7 @@ for pagenum in range(numPages):
 if outputfile == '':
     outfootStream = file(name + "-addbar.pdf", "wb")
 else:
-    outfootStream = file(name + outputfile + ".pdf", "wb")
+    outfootStream = file(outputfile + ".pdf", "wb")
 
 outfoot.write(outfootStream)
 outfootStream.close()
