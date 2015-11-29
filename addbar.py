@@ -25,17 +25,19 @@ namepdf = name + ".pdf"
 # number of output channels
 while True:
     try:
-        channels = int(raw_input("How many output channels (usually 1 or 2)?\n"))
+        channels = int(
+            raw_input("How many output channels (usually 1 or 2)?\n"))
     except ValueError:
         print("Try 1 or 2")
-    else: 
-        if 1 <= channels <= 2: 
+    else:
+        if 1 <= channels <= 2:
             break
-        else : 
+        else:
             print("Try 1 or 2")
 
 # output filename
-outputfile = raw_input("Output filename without '.pdf' (default: 'filename-addbar.pdf')?\n")
+outputfile = raw_input(
+    "Output filename without '.pdf' (default: 'filename-addbar.pdf')?\n")
 
 infoot = PdfFileReader(file(namepdf, "rb"))
 outfoot = PdfFileWriter()
@@ -66,7 +68,7 @@ for pagenum in range(numPages):
         page.trimBox.lowerRight = (440, 793.5)
         page.cropBox.upperLeft = (43.5, 0)
         page.cropBox.lowerRight = (440, 793.5)
-    
+
     outfoot.addPage(page)
 
 
