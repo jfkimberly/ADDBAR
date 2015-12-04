@@ -37,7 +37,7 @@ while True:
 
 # output filename
 outputfile = raw_input(
-    "Output filename without '.pdf' (default: 'filename-addbar.pdf')?\n")
+    "Output filename without '.pdf' (default: '" + name + "-addbar.pdf')?\n")
 
 infoot = PdfFileReader(file(namepdf, "rb"))
 outfoot = PdfFileWriter()

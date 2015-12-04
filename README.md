@@ -45,6 +45,23 @@ $ python addbar.py
 ```
 
 Enter the name of the pdf file (without typing '.pdf'). The file may be multiple
-pages. For example if you have a file named *example.pdf*, type *example* and a
-file named *example-addbar.pdf*, with all the cropped images and added scale
-bars, will be produced.
+pages. For example if you have a file named *example.pdf*, type *example*.
+
+```
+> How many output channels (usually 1 or 2)?
+1
+```
+
+This question asks how many output channels there are in the pdf file. For
+instance, if each page has only the height data, the number of output channels
+is `1`. If there are 2 output data channels, such as the height and amplitude
+data in the pdf file, then the number of output channels is `2`.
+
+```
+> Output filename without '.pdf' (default: 'example-addbar.pdf')?
+```
+
+Type the name of the output file you want. The default (just pressing `Enter`)
+is the name of the input file with the `-addbar` suffix appended, in which
+case, a file named *example-addbar.pdf*, with all the cropped images and scale
+bars added, will be produced.
